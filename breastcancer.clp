@@ -215,7 +215,7 @@
 )
 
 (defrule ask-concave-points-error
-    (worst-radius ?num&:(> ?num 16.19))
+    (mean-texture ?num&:(> ?num 16.19))
     =>
     (printout t "Concave points error? ")
     (assert (concave-points-error-input (read)))
@@ -331,12 +331,12 @@
 (defrule concave-points-error-below
     (concave-points-error ?num&:(<= ?num 0.01))
     =>
-    (assert (hasil 1.0))
+    (assert (hasil 0.0))
 )
 (defrule concave-points-error-over
     (concave-points-error ?num&:(> ?num 0.01))
     =>
-    (assert (hasil 0.0))
+    (assert (hasil 1.0))
 )
 
 
@@ -389,7 +389,7 @@
 )
 
 (defrule ask-mean-radius-worst-area
-    (worst-area ?num&:(<= ?num 641.60))
+    (worst-area ?num&:(> ?num 641.60))
     =>
     (printout t "Mean radius? ")
     (assert (mean-radius-worst-area-input (read)))
@@ -415,12 +415,12 @@
 (defrule mean-radius-below
     (mean-radius ?num&:(<= ?num 13.34))
     =>
-    (assert (hasil 1.0))
+    (assert (hasil 0.0))
 )
 (defrule mean-radius-over
     (mean-radius ?num&:(> ?num 13.34))
     =>
-    (assert (hasil 0.0))
+    (assert (hasil 1.0))
 )
 
 ; ===================== degree 6 =====================
@@ -448,7 +448,7 @@
 )
 
 (defrule mean-radius-worst-area-over
-    (mean-radius ?num&:(> ?num 13.45))
+    (mean-radius-worst-area ?num&:(> ?num 13.45))
     =>
     (assert (hasil 1.0))
 )
@@ -457,12 +457,12 @@
 (defrule mean-texture-mean-radius-below
     (mean-texture-mean-radius ?num&:(<= ?num 28.79))
     =>
-    (assert (hasil 1.0))
+    (assert (hasil 0.0))
 )
 (defrule mean-texture-mean-radius-over
     (mean-texture-mean-radius ?num&:(> ?num 28.79))
     =>
-    (assert (hasil 0.0))
+    (assert (hasil 1.0))
 )
 ; ================================ Hasil ================================
 (defrule kena-kanker
